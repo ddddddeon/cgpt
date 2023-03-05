@@ -11,7 +11,7 @@ impl Repl {
         Self { running: false }
     }
 
-    pub fn start(&mut self) -> Result<(), Box<dyn std::error::Error>> {
+    pub fn start(&mut self) -> Result<(), String> {
         let mut client = Client::new();
         client.connect()?;
         self.running = true;
@@ -23,7 +23,7 @@ impl Repl {
             io::stdout().flush().unwrap();
             if let Err(e) = io::stdin().read_line(&mut input) {
                 println!("Could not read from stdin: {e}");
-                return Err(e.into());
+                return Err(e.to_string());
             }
 
             if &input == "exit\n" {

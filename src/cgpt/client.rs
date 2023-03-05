@@ -13,7 +13,7 @@ impl Client {
         }
     }
 
-    pub fn connect(&mut self) -> Result<(), Box<dyn std::error::Error>> {
+    pub fn connect(&mut self) -> Result<(), String> {
         self.connected = true;
 
         Ok(())
@@ -31,7 +31,7 @@ mod tests {
     }
 
     #[test]
-    fn client_connect() -> Result<(), Box<dyn std::error::Error>> {
+    fn client_connect() -> Result<(), String> {
         let mut client = Client::new();
         return client.connect();
     }
