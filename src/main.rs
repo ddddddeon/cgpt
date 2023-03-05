@@ -3,5 +3,7 @@ pub mod cgpt;
 
 fn main() {
     let mut repl = Repl::new();
-    repl.start();
+    if let Err(e) = repl.start() {
+        panic!("{}", e.to_string());
+    }
 }

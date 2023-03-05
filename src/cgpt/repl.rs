@@ -1,6 +1,7 @@
 use super::client::Client;
 use std::io::{self, Write};
 
+#[derive(Default)]
 pub struct Repl {
     running: bool,
 }
@@ -25,7 +26,7 @@ impl Repl {
                 return Err(e.into());
             }
 
-            if input == "exit\n".to_string() {
+            if &input == "exit\n" {
                 return Ok(());
             }
 
@@ -33,8 +34,6 @@ impl Repl {
             // TODO save message history
             input.clear();
         }
-
-        Ok(())
     }
 
     pub fn is_running(&self) -> bool {
