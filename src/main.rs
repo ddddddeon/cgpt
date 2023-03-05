@@ -1,5 +1,4 @@
-use crate::cgpt::Repl;
-pub mod cgpt;
+use cgpt::Repl;
 
 fn main() {
     let mut repl = Repl::new();
