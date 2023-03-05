@@ -35,8 +35,15 @@ impl Repl {
             input.clear();
         }
     }
+}
 
-    pub fn is_running(&self) -> bool {
-        self.running
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn new_repl() {
+        let repl = Repl::new();
+        assert!(!repl.running);
     }
 }

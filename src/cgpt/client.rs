@@ -19,3 +19,14 @@ impl Client {
         Ok(())
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn new_client() {
+        let client = Client::new();
+        assert!(!client.connected);
+    }
+}
