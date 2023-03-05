@@ -3,8 +3,8 @@ pub mod cgpt;
 
 fn main() {
     let mut repl = Repl::new();
-    repl.start().unwrap_or_else(|err| {
-        println!("Could not start repl: {err}");
+    if let Err(e) = repl.start() {
+        println!("Could not start repl: {e}");
         std::process::exit(1);
-    });
+    };
 }
