@@ -2,16 +2,12 @@ use super::client::Client;
 use std::io::{self, Write};
 
 pub struct Repl {
-    name: String,
     running: bool,
 }
 
 impl Repl {
-    pub fn new(name: &str) -> Self {
-        Self {
-            name: name.to_string(),
-            running: false,
-        }
+    pub fn new() -> Self {
+        Self { running: false }
     }
 
     pub fn start(&mut self) -> Result<(), Box<dyn std::error::Error>> {
