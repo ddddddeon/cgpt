@@ -25,6 +25,10 @@ impl Repl {
                 return Err(e.into());
             }
 
+            if input == "exit\n".to_string() {
+                return Ok(());
+            }
+
             print!("You entered: {input}");
             // TODO save message history
             input.clear();
