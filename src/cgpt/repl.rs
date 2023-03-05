@@ -42,7 +42,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn new_repl() {
+    fn repl_new() {
         let repl = Repl::new();
         assert!(!repl.running);
     }

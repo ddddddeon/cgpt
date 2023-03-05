@@ -25,8 +25,14 @@ mod tests {
     use super::*;
 
     #[test]
-    fn new_client() {
+    fn client_new() {
         let client = Client::new();
         assert!(!client.connected);
+    }
+
+    #[test]
+    fn client_connect() -> Result<(), Box<dyn std::error::Error>> {
+        let mut client = Client::new();
+        return client.connect();
     }
 }
